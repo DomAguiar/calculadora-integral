@@ -8,22 +8,22 @@ st.set_page_config(page_title="Calculadora de Integrais", layout="centered")
 
 st.title("Calculadora de Integrais")
 
-inpute = st.text_input("f(x) =", value="x**2")
+inpute = st.text_input("f(x) =", value="x**3")
 
 def f(x):
-    return eval(inpute, {"x": x, "np": np, "math": math})
+    return eval(inpute, {"x": x, "sen": np.sin, "cos": np.cos, "tan":np.tan, "sqrt": np.sqrt, "log": np.log})
 
 f_vec = np.vectorize(f)
 
 col1, col2 = st.columns(2)
 
 with col1:
-    a = st.number_input("Valor inicial (a):", value=0.0)
+    a = st.number_input("Valor inicial (a):", value=-10.0)
 
 with col2:
-    b = st.number_input("Valor final (b):", value=1.0)
+    b = st.number_input("Valor final (b):", value=10.0)
 
-if st.button("Calcular Integral"):
+if st.button("Calcule"):
     try:
         integral, _ = quad(f, a, b)
 
