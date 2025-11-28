@@ -11,7 +11,7 @@ st.title("Calculadora de Integrais")
 inpute = st.text_input("f(x) =", value="x**3")
 
 def f(x):
-    return eval(inpute, {"x": x, "sen": np.sin, "cos": np.cos, "tan":np.tan, "sqrt": np.sqrt, "log": np.log, "pi":np.pi,"np":np, "e":np.e})
+    return eval(inpute, {"x": x, "sen": np.sin, "cos": np.cos, "tan":np.tan, "sqrt": np.sqrt, "log": np.log, "pi":np.pi,"np":np, "e":np.e, "^": eval("**"), "exp":np.exp})
 
 f_vec = np.vectorize(f)
 
@@ -42,4 +42,5 @@ if st.button("Calcule"):
 
     except Exception as e:
         st.error(f"Erro ao processar a função: {e}")
+
 
