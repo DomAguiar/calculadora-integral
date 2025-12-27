@@ -1,3 +1,4 @@
+import streamlit as st
 import numpy as np
 from scipy.integrate import quad
 import matplotlib.pyplot as plt
@@ -41,6 +42,7 @@ if st.button("Calcule"):
 
     except Exception as e:
         st.error(f"Erro ao processar a função: {e}")
+
 
 
 
